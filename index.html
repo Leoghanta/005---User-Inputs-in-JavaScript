@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/sunburst.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</head>
+<body>
+    <header>
+        <h1>Workshop 5: Working with User Inputs in JavaScript</h1>
+    </header>
+
+    <div class="container">
+        <h1>Workshop 5</h1>
+        <p>Welcome to Workshop 5! Today, we'll dive into one of the essential aspects of JavaScript: working with user 
+           inputs. User interaction is a critical component of any dynamic web application, and JavaScript provides 
+           several tools to gather and display information. In this session, we'll focus on using the prompt() function 
+           to gather user input and the alert() and console.log() functions to display output. By the end of this workshop, 
+           you should be comfortable using these functions to create simple interactive scripts.
+        </p> 
+
+        <div class="browser-section">
+            <h2>Introduction to User Inputs in JavaScript</h2>
+            <p>User inputs allow web applications to become interactive and responsive to the needs and actions of the user. JavaScript provides several built-in methods to handle user inputs and outputs. The most basic ones we'll discuss today are:</p>
+            <p><span class="highlight">prompt():</span> This function prompts the user to input some data.</p>
+            <p><span class="highlight">alert():</span> This function displays an alert box with a message.</p>
+            <p><span class="highlight">console.log():</span> This function logs a message to the browser's console.</p>
+            <p>These functions are fundamental to understanding how JavaScript interacts with users, so let's start with the basics.</p>
+            </p>
+
+            <div class="browser-section">
+                <h2>Using prompt() to Gather User Input</h2>
+                <p>The prompt() function is a simple way to ask the user to provide input. It displays a dialog box with an 
+                    optional message, and the user can type their response in a text field.</p>
+                <p class="highlight">Syntax of 'prompt()'</p>
+                <pre><code class="language-javascript">
+let userInput = prompt("Please enter your name:");               
+                </code></pre>   
+                <p>In this example, the prompt() function displays a dialog box with the message "Please enter your name:". 
+                    Whatever the user types into the box is then stored in the variable userInput.</p>   
+                <p class="highlight">Example: Asking for User Input</p>
+                <pre><code class="language-javascript">
+let age = prompt("How old are you?");
+console.log("You are " + age + " years old.");            
+                </code></pre>   
+                <p>This script asks the user for their age and then logs the response to the console. 
+                    Notice how the prompt() function captures the user's input as a string.</p>         
+            </div>            
+
+        <div class="browser-section">
+            <h2>Handling Cancelation or Empty Inputs</h2>
+            <p>If the user clicks "Cancel" or leaves the input blank, prompt() returns null 
+                or an empty string. It's important to check for these cases to prevent unexpected behavior.
+            </p>
+            <pre><code class="language-javascript">
+let age = prompt("How old are you?");
+if (age === null || age === "") {
+    console.log("User did not enter their age.");
+} else {
+    console.log("You are " + age + " years old.");
+}                 
+            </code></pre>
+        </div>
+            
+        <div class="browser-section">
+            <h2>Displaying Output with alert() and console.log()</h2>
+            <p>After gathering input from the user, you often want to display it back to them or log it 
+               for debugging purposes.</p>
+            <h2>The alert() Function</h2>
+            <p>The alert() function displays a simple pop-up message to the user. This can be useful 
+                for quick notifications or to provide feedback based on user input.</p>
+           <pre><code class="language-javascript">
+alert("Hello, world!");             
+            </code></pre>
+            <p>This code snippet will display a dialog box with the message "Hello, world!". The user must 
+                click "OK" to dismiss the alert and continue.</p>
+            <p class="highlight">Example: Displaying a Greeting</p>
+            <pre><code class="language-javascript">
+let name = prompt("What is your name?");
+alert("Hello, " + name + "!");                       
+            </code></pre>
+            <p>In this example, the user's name is requested through prompt(), and an alert is shown with a personalized greeting.</p>
+
+            <h2>The console.log() Function</h2>
+            <p>While alert() is useful for user-facing messages, console.log() is essential for developers to output messages to the 
+                browser's console. This is especially helpful for debugging purposes.</p>
+           <pre><code class="language-javascript">
+console.log("This is a debug message.");            
+            </code></pre>
+            <p class="highlight">Example: Logging Input for Debugging</p>
+            <pre><code class="language-javascript">
+let name = prompt("What is your name?");
+console.log("User entered: " + name);
+alert("Hello, " + name + "!");                                      
+            </code></pre>
+            <p>Here, the user's input is both displayed in an alert and logged in the console, which allows the 
+                developer to see what the user entered without disrupting the user's experience.</p>
+        </div>
+
+
+        <div class="browser-section">
+            <h2>Combining prompt(), alert(), and console.log() for Interactive Scripts</h2>
+            <p>Now that we've covered the basics, let's combine these functions to create a more interactive experience.</p>
+            <h2>Example: Simple Calculator</h2>
+           <pre><code class="language-javascript">
+let num1 = prompt("Enter the first number:");
+let num2 = prompt("Enter the second number:");
+
+let sum = Number(num1) + Number(num2);
+
+alert("The sum of " + num1 + " and " + num2 + " is " + sum);
+console.log("Sum calculated: " + sum);            
+            </code></pre>
+            <p>This script asks the user to input two numbers, adds them together, and displays the result in 
+               both an alert and the console. Note that Number() is used to convert the input strings to numbers before
+               performing the addition.</p>
+            <h2>Example: User Authentication Simulation</h2>
+            <pre><code class="language-javascript">
+let username = prompt("Enter your username:");
+let password = prompt("Enter your password:");
+
+if (username === "admin" && password === "1234") {
+    alert("Login successful!");
+    console.log("User " + username + " logged in successfully.");
+} else {
+    alert("Login failed. Please check your username and password.");
+    console.log("Login attempt failed for user: " + username);
+}                            
+            </code></pre>
+            <p>In this script, the user is asked to enter a username and password. The 
+                   input is checked against predefined credentials, and the result is displayed using 
+                   both alert() and console.log().</p>
+        </div>
+        
+        <div class="browser-section">
+            <h2>Exercises</h2>
+            <ul id="taskList">
+                <li><input type="checkbox" id="task1"><label for="task1"> Task 1: Age Checker</br>
+                    Create a script that asks the user for their birth year and calculates their age. If the user is 18 or older, display a message saying "You are an adult." If they are younger than 18, display a message saying "You are a minor." Make sure to handle invalid inputs like non-numeric values.</label></li>
+                <li><input type="checkbox" id="task2"><label for="task2"> Task 2: Favorite Colour</br>
+                    Ask the user to input their favorite colour and then use alert() to display a message saying "Your favorite colour is [colour]." Log the user's input to the console as well.
+                <li><input type="checkbox" id="task3"><label for="task3"> Task 3: Simple Quiz</br>
+                    Create a simple quiz with three questions. Use prompt() to gather the user's answers. If the user answers all three questions correctly, display an alert saying "Congratulations! You passed the quiz!" Otherwise, display an alert saying "Sorry, you did not pass." Log the user's answers to the console.    
+                <li><input type="checkbox" id="task4"><label for="task4"> Task 4: Temperature Converter<br>
+                    Ask the user to input a temperature in Celsius and convert it to Fahrenheit. Display the result using alert() and log the conversion formula and result to the console.</label></li>
+              </ul>
+        </div>        
+
+
+        <div class="browser-section">
+            <h2>Q&A and Troubleshooting</h2>
+            <ul id="taskList">
+                <li>✅ Empty or Null Inputs: Remember that prompt() can return an empty string or null if the user cancels the input. Always check for these values before proceeding with your script.</li>
+                <li>✅ Type Conversion: prompt() always returns a string. If you're working with numbers, use Number() to convert the input from a string to a number.</li>
+                <li>✅ Debugging: Use console.log() frequently to see what's happening inside your script, especially when you are working with user inputs. It can save you a lot of time by showing you what the user actually entered.</li>
+            </ul>
+            <p class="highlight">Remember the Whiteboard is available for you to ask questions anonymously.</p>
+        </div>
+
+        <div class="browser-section">
+            <h2>Further Learning</h2>
+            <ul id="taskList">
+                <li>📖 <a href="https://www.w3schools.com/jsref/met_win_prompt.asp" target="_blank">W3Schools Prompt</li>
+                <li>👀 <a href="https://www.youtube.com/watch?v=B4XVGSlGmww" target="_blank">YouTube: Jayse Chase - Prompt in JS</a></li>
+                <li>💻 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt" target="_blank">Official Documentation</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; J. Wilson. Dundee and Angus College.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
